@@ -23,7 +23,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import Foundation
+@preconcurrency import Foundation
 import Security
 #if os(iOS) || os(macOS)
 import LocalAuthentication
@@ -206,7 +206,7 @@ extension AuthenticationUI {
     }
 }
 
-public struct AuthenticationPolicy: OptionSet {
+public struct AuthenticationPolicy: OptionSet, Sendable {
     /**
      User presence policy using Touch ID or Passcode. Touch ID does not
      have to be available or enrolled. Item is still accessible by Touch ID

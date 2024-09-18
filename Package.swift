@@ -21,7 +21,9 @@ let package = Package(
         .target(
           name: "KeychainAccess",
           path: "Lib/KeychainAccess",
-          linkerSettings: [.unsafeFlags(["-Xlinker", "-no_application_extension"])])
+          swiftSettings: [.swiftLanguageMode(.v6)],
+          linkerSettings: [.unsafeFlags(["-Xlinker", "-no_application_extension"])]
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
